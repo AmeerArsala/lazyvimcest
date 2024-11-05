@@ -126,18 +126,18 @@ function! g:SetNoVimModeShortcuts()
 
   " Move between splits, panes, windows, etc and close them
   if g:novim_mode_use_pane_controls == 1
-    inoremap <silent> <M-h>  <C-O><C-W><Left>
-    snoremap <silent> <M-h>  <Esc><C-W><Left>
-    nnoremap <silent> <M-h>  <C-W><Left>
-    inoremap <silent> <M-j>  <C-O><C-W><Down>
-    snoremap <silent> <M-j>  <Esc><C-W><Down>
-    nnoremap <silent> <M-j>  <C-W><Down>
-    inoremap <silent> <M-k>    <C-O><C-W><Up>
-    snoremap <silent> <M-k>    <Esc><C-W><Up>
-    nnoremap <silent> <M-k>    <C-W><Up>
-    inoremap <silent> <M-l> <C-O><C-W><Right>
-    snoremap <silent> <M-l> <Esc><C-W><Right>
-    nnoremap <silent> <M-l> <C-W><Right>
+    "inoremap <silent> <M-h>  <C-O><C-W><Left>
+    "snoremap <silent> <M-h>  <Esc><C-W><Left>
+    "nnoremap <silent> <M-h>  <C-W><Left>
+    "inoremap <silent> <M-j>  <C-O><C-W><Down>
+    "snoremap <silent> <M-j>  <Esc><C-W><Down>
+    "nnoremap <silent> <M-j>  <C-W><Down>
+    "inoremap <silent> <M-k>    <C-O><C-W><Up>
+    "snoremap <silent> <M-k>    <Esc><C-W><Up>
+    "nnoremap <silent> <M-k>    <C-W><Up>
+    "inoremap <silent> <M-l> <C-O><C-W><Right>
+    "snoremap <silent> <M-l> <Esc><C-W><Right>
+    "nnoremap <silent> <M-l> <C-W><Right>
 
     " This allows unsaved buffers to be kept in the background.
     set hidden
