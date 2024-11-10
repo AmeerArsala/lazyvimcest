@@ -12,12 +12,15 @@ function! s:IsEditableBuffer()
   endif
 endfunction
 
-function! ActivateMSWinMode()
-
-endfunction
-
 function! ActivateXtermMode()
   set mousemodel=extend  " The default mousemode
+endfunction
+
+function! ActivateMSWinMode()
+  set selection=exclusive
+  set selectmode=mouse,key
+  set mousemodel=popup
+  set keymodel=startsel,stopsel
 endfunction
 
 " Make sure insert mode is the default mode only when opening/switching
@@ -31,6 +34,9 @@ function! s:InsertMode()
     inoremap <Esc> <Nop>
     inoremap <C-L> <Esc>
     nnoremap <Esc> i
+    
+    " Deactivate the MSWin Mode if it exists
+    set keymodel=""
   else
     exe "stopinsert"
     inoremap <Esc> <Esc>
