@@ -12,6 +12,14 @@ function! s:IsEditableBuffer()
   endif
 endfunction
 
+function! ActivateMSWinMode()
+
+endfunction
+
+function! ActivateXtermMode()
+  set mousemodel=extend  " The default mousemode
+endfunction
+
 " Make sure insert mode is the default mode only when opening/switching
 " to files that you want to edit.
 function! s:InsertMode()
@@ -70,7 +78,8 @@ function! s:InsertAndSelectionBehaviour()
     " So far I know `xterm` selection behaviour is critical for autocompletion plugins
     " that do things like paste a snippet with placeholders that get selected and hence
     " replaced when you start typing.
-    autocmd InsertEnter * set mousemodel=extend
+    " This is the modern equivalent of `behave xterm`
+    autocmd InsertEnter * call ActivateXtermMode()
   augroup END
 
   " Make 'v' commands default to Visual mode.
@@ -391,10 +400,7 @@ function! novim_mode#EnterSelectionMode(type)
   
   " behave mswin
   " New way of doing this (behave mswin)
-  set selection=exclusive
-  set selectmode=mouse,key
-  set mousemodel=popup
-  set keymodel=startsel,stopsel
+  call ActivateMSWinMode()
 
   if a:type == 'left'
     execute "normal! \<S-Left>"
