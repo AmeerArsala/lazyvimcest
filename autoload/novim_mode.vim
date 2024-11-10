@@ -34,14 +34,14 @@ function! s:InsertMode()
     inoremap <Esc> <Nop>
     inoremap <C-L> <Esc>
     nnoremap <Esc> i
-    
-    " Deactivate the MSWin Mode if it exists
-    set keymodel=""
   else
     exe "stopinsert"
     inoremap <Esc> <Esc>
     inoremap <C-L> <C-L>
     nnoremap <Esc> <Esc>
+
+    " Deactivate the MSWin Mode if it exists
+    set keymodel=""
   endif
 endfunction
 
