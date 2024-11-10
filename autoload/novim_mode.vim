@@ -101,11 +101,11 @@ endfunction
 function! g:SetNoVimModeShortcuts()
   " Basic interactions with the editor
   if g:novim_mode_use_general_app_shortcuts == 1
-    " CTRL+q to completely exit vim
-    inoremap <silent> <C-Q> <C-O>:call novim_mode#ExitVim()<CR>
-    snoremap <silent> <C-Q> <C-O>:call novim_mode#ExitVim()<CR>
-    nnoremap <silent> <C-Q> :call novim_mode#ExitVim()<CR>
-    cnoremap <silent> <C-Q> <C-C><C-O>:call novim_mode#ExitVim()<CR>
+    " CTRL+q to completely exit vim (nah)
+    "inoremap <silent> <C-Q> <C-O>:call novim_mode#ExitVim()<CR>
+    "snoremap <silent> <C-Q> <C-O>:call novim_mode#ExitVim()<CR>
+    "nnoremap <silent> <C-Q> :call novim_mode#ExitVim()<CR>
+    "cnoremap <silent> <C-Q> <C-C><C-O>:call novim_mode#ExitVim()<CR>
 
     " CTRL+n for new file
     inoremap <C-N> <C-O>:edit<Space>
