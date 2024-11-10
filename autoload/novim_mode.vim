@@ -70,7 +70,7 @@ function! s:InsertAndSelectionBehaviour()
     " So far I know `xterm` selection behaviour is critical for autocompletion plugins
     " that do things like paste a snippet with placeholders that get selected and hence
     " replaced when you start typing.
-    autocmd InsertEnter * behave xterm
+    autocmd InsertEnter * set mousemodel=extend
   augroup END
 
   " Make 'v' commands default to Visual mode.
@@ -388,7 +388,13 @@ function! novim_mode#EnterSelectionMode(type)
   "  'mousemodel' 'popup'            'extend'
   "  'keymodel'   'startsel,stopsel' ''
   "  'selection'  'exclusive'        'inclusive'
-  behave mswin
+  
+  " behave mswin
+  " New way of doing this (behave mswin)
+  set selection=exclusive
+  set selectmode=mouse,key
+  set mousemodel=popup
+  set keymodel=startsel,stopsel
 
   if a:type == 'left'
     execute "normal! \<S-Left>"
