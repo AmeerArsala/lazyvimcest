@@ -39,9 +39,6 @@ function! s:InsertMode()
     inoremap <Esc> <Esc>
     inoremap <C-L> <C-L>
     nnoremap <Esc> <Esc>
-
-    " Deactivate the MSWin Mode if it exists
-    set keymodel=""
   endif
 endfunction
 
@@ -86,6 +83,9 @@ function! s:InsertAndSelectionBehaviour()
     " replaced when you start typing.
     " This is the modern equivalent of `behave xterm`
     autocmd InsertEnter * call ActivateXtermMode()
+
+    " remove go back to the normal stuff on leaving insert mode
+    autocmd InsertLeave * set keymodel=""
   augroup END
 
   " Make 'v' commands default to Visual mode.
@@ -198,7 +198,7 @@ function! g:SetNoVimModeShortcuts()
 
   " Indenting
   if g:novim_mode_use_indenting == 1
-    " TODO: In Neovim TAB doesn't work in mswin selection mode, but SHIFT+TAB does??
+    " Either Tab/ShiftTab or Alt+]/Alt+[
     snoremap <Tab> <C-O>>gv<C-G>
     inoremap <M-]> <C-T>
     snoremap <M-]> <C-O>>gv<C-G>
@@ -209,16 +209,21 @@ function! g:SetNoVimModeShortcuts()
   endif
 
   if g:novim_mode_use_finding == 1
+    " NOTE: This is BAD because it tricks the user into thinking this is a
+    " straight up CTRL + F type find when it is a fundamentally different
+    " thing (searching downwards or upwards unidirectionally). Therefore, I
+    " have decided to disable it
+
     " Find
-    inoremap <C-F> <C-O>/
+    "inoremap <C-F> <C-O>/
     " Find selected word under cursor
-    snoremap <C-F> <C-O>y/<C-R>"<CR>
+    "snoremap <C-F> <C-O>y/<C-R>"<CR>
     " Find next
-    inoremap <F3> <C-O>n
+    "inoremap <F3> <C-O>n
     " Find previous
-    inoremap <S-F3> <C-O>N
+    "inoremap <S-F3> <C-O>N
     " Find and replace
-    inoremap <C-S-F> <C-O>:%s/[FIND]/[REPLACE]/g
+    "inoremap <C-S-F> <C-O>:%s/[FIND]/[REPLACE]/g
   endif
 
   " Undo/redo

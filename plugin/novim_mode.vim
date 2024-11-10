@@ -1,5 +1,5 @@
-" novim_mode.vim - 'Conventional' editor keybindings plugin
-" Author:       tombh
+" lazyvimcest.vim - 'Conventional' editor keybindings plugin
+" Author:       AmeerArsala
 " Version:      0.1
 "
 " ============================================================================
