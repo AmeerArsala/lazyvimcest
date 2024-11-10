@@ -158,9 +158,9 @@ function! g:SetNoVimModeShortcuts()
     set hidden
 
     " CTRL+w to delete current pane-like things.
-    inoremap <silent> <C-W> <C-O>:call novim_mode#ClosePane()<CR>
-    snoremap <silent> <C-W> <C-O>:call novim_mode#ClosePane()<CR>
-    nnoremap <silent> <C-W> :call novim_mode#ClosePane()<CR>
+    "inoremap <silent> <C-W> <C-O>:call novim_mode#ClosePane()<CR>
+    "snoremap <silent> <C-W> <C-O>:call novim_mode#ClosePane()<CR>
+    "nnoremap <silent> <C-W> :call novim_mode#ClosePane()<CR>
   end
 
   " Selecting, copy, paste, etc
